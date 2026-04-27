@@ -1,0 +1,31 @@
+1. Установка:
+```bash
+apt update
+apt install -y containerd
+```
+
+2. Конфиг:
+```bash
+mkdir -p /etc/containerd
+containerd config default | tee /etc/containerd/config.toml
+```
+
+4. Включить systemd cgroup:
+Открой файл:
+```bash
+nano /etc/containerd/config.toml
+```
+Найди:
+```bash
+SystemdCgroup = false
+```
+Замени на:
+```bash
+SystemdCgroup = true
+```
+
+5. Перезапуск:
+```bash
+systemctl restart containerd
+systemctl enable containerd
+```

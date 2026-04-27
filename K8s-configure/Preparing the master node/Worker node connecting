@@ -1,0 +1,19 @@
+На worker node выполняем команду которую получили при инициализации master node
+
+Пример:
+```bash
+kubeadm join 192.168.1.10:6443 \
+  --token xxx \
+  --discovery-token-ca-cert-hash sha256:xxx
+```
+
+Проверка:
+```bash
+kubectl get nodes
+```
+
+Должно быть:
+```bash
+master   Ready
+worker   Ready
+```
